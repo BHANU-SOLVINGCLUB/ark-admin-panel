@@ -97,7 +97,7 @@ export default function Sidebar() {
   return (
     <>
       <header
-        className="md:hidden sticky top-0 z-40 flex items-center justify-between px-4 py-3 border-b border-white/10"
+        className="md:hidden fixed top-0 inset-x-0 z-40 flex items-center justify-between px-4 py-3 border-b border-white/10"
         style={{ backgroundColor: NAVY }}
       >
         <div className="flex items-center gap-2.5">
@@ -126,13 +126,13 @@ export default function Sidebar() {
       )}
 
       <aside
-        className={`fixed md:static top-0 left-0 z-50 w-64 min-h-screen flex flex-col transform transition-transform duration-200 ${
-          isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        className={`md:hidden fixed top-0 left-0 z-50 w-64 h-screen flex flex-col transform transition-transform duration-200 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{ backgroundColor: NAVY }}
       >
         {/* Logo */}
-        <div className="px-5 py-5 border-b border-white/10">
+        <div className="hidden md:block px-5 py-5 border-b border-white/10">
           <div className="flex items-center gap-3">
             <div className="rounded-xl overflow-hidden flex-shrink-0" style={{ backgroundColor: NAVY, border: `1px solid ${GOLD}33` }}>
               <ArkLogoSvg size={40} />
@@ -148,6 +148,32 @@ export default function Sidebar() {
         <nav className="flex-1 px-3 py-4 space-y-1">{renderNavItems(true)}</nav>
 
         {/* Sign out */}
+        <div className="px-3 pb-5">
+          <div className="border-t border-white/10 pt-4">
+            <button
+              className={`${navItemClass} w-full`}
+              style={{ color: "rgba(255,255,255,0.45)" }}
+            >
+              <LogOut size={17} />
+              Sign Out
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <aside className="hidden md:flex md:sticky md:top-0 w-60 h-screen flex-col" style={{ backgroundColor: NAVY }}>
+        <div className="px-5 py-5 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="rounded-xl overflow-hidden flex-shrink-0" style={{ backgroundColor: NAVY, border: `1px solid ${GOLD}33` }}>
+              <ArkLogoSvg size={40} />
+            </div>
+            <div>
+              <p className="text-white font-black text-sm leading-tight tracking-wider">ARK ASSURED</p>
+              <p style={{ color: GOLD, fontSize: 9, letterSpacing: 2, fontWeight: 700, marginTop: 1 }}>THE SEAL OF TRUST</p>
+            </div>
+          </div>
+        </div>
+        <nav className="flex-1 px-3 py-4 space-y-1">{renderNavItems()}</nav>
         <div className="px-3 pb-5">
           <div className="border-t border-white/10 pt-4">
             <button
