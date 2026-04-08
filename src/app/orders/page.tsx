@@ -5,8 +5,8 @@ export default function OrdersPage() {
   const total = ORDERS.reduce((sum, o) => sum + o.amount, 0);
 
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-between mb-8">
+    <div className="p-4 sm:p-6 lg:p-8">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-black text-[#061429]">Orders</h1>
           <p className="text-gray-500 text-sm mt-1">{ORDERS.length} orders · Total ₹{total.toLocaleString()}</p>
@@ -18,7 +18,7 @@ export default function OrdersPage() {
       </div>
 
       {/* Status summary pills */}
-      <div className="flex gap-3 mb-6">
+      <div className="flex gap-3 mb-6 overflow-x-auto pb-1">
         {["All", "Processing", "Shipped", "Delivered", "Cancelled"].map((s) => (
           <button
             key={s}
@@ -43,7 +43,8 @@ export default function OrdersPage() {
       </div>
 
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[860px]">
           <thead>
             <tr className="text-left text-xs text-gray-400 uppercase tracking-wide border-b border-gray-100">
               {["Order ID", "Customer", "Product", "Amount", "Status", "Date", "Action"].map((h) => (
@@ -73,6 +74,7 @@ export default function OrdersPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

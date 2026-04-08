@@ -3,8 +3,8 @@ import { PROFESSIONALS, STATUS_COLORS } from "@/lib/data";
 
 export default function ProfessionalsPage() {
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-between mb-8">
+    <div className="p-4 sm:p-6 lg:p-8">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-black text-[#061429]">Professionals</h1>
           <p className="text-gray-500 text-sm mt-1">{PROFESSIONALS.length} registered professionals</p>
@@ -15,7 +15,7 @@ export default function ProfessionalsPage() {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
         {PROFESSIONALS.map((prof) => (
           <div
             key={prof.id}
@@ -41,7 +41,7 @@ export default function ProfessionalsPage() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-4 mt-3 text-xs text-gray-500">
+                <div className="flex flex-wrap items-center gap-3 mt-3 text-xs text-gray-500">
                   <div className="flex items-center gap-1">
                     <Star size={11} className="text-[#D4AF37] fill-[#D4AF37]" />
                     <span className="font-bold text-[#061429]">{prof.rating}</span>
@@ -60,7 +60,7 @@ export default function ProfessionalsPage() {
               </div>
             </div>
 
-            <div className="flex gap-2 mt-4">
+            <div className="flex flex-wrap gap-2 mt-4">
               {prof.status === "Pending" && (
                 <button className="flex-1 bg-[#061429] text-[#D4AF37] text-xs font-bold py-2 rounded-xl hover:bg-[#061429]/90 transition-colors">
                   Verify

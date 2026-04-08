@@ -1,6 +1,6 @@
 export default function SettingsPage() {
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <div className="mb-8">
         <h1 className="text-2xl font-black text-[#061429]">Settings</h1>
         <p className="text-gray-500 text-sm mt-1">Manage your store configuration</p>
@@ -8,7 +8,7 @@ export default function SettingsPage() {
 
       <div className="max-w-2xl space-y-6">
         {/* Store Details */}
-        <div className="bg-white rounded-2xl border border-gray-100 p-6">
+        <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-6">
           <h2 className="text-[#061429] text-base font-bold mb-5">Store Details</h2>
           <div className="space-y-4">
             {[
@@ -31,7 +31,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Delivery Settings */}
-        <div className="bg-white rounded-2xl border border-gray-100 p-6">
+        <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-6">
           <h2 className="text-[#061429] text-base font-bold mb-5">Delivery Settings</h2>
           <div className="space-y-4">
             <div>
@@ -57,11 +57,11 @@ export default function SettingsPage() {
           </div>
         </div>
 
-        <div className="flex justify-end gap-3">
-          <button className="px-5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-600 font-semibold hover:bg-gray-50 transition-colors">
+        <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+          <button className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-600 font-semibold hover:bg-gray-50 transition-colors">
             Cancel
           </button>
-          <button className="px-5 py-2.5 rounded-xl bg-[#061429] text-[#D4AF37] text-sm font-bold hover:bg-[#061429]/90 transition-colors">
+          <button className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#061429] text-[#D4AF37] text-sm font-bold hover:bg-[#061429]/90 transition-colors">
             Save Changes
           </button>
         </div>

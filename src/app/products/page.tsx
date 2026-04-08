@@ -3,8 +3,8 @@ import { PRODUCTS, STATUS_COLORS } from "@/lib/data";
 
 export default function ProductsPage() {
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-between mb-8">
+    <div className="p-4 sm:p-6 lg:p-8">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-black text-[#061429]">Products</h1>
           <p className="text-gray-500 text-sm mt-1">{PRODUCTS.length} products in inventory</p>
@@ -16,8 +16,8 @@ export default function ProductsPage() {
       </div>
 
       {/* Search & filter bar */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2.5 flex-1 max-w-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+        <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2.5 flex-1 sm:max-w-sm">
           <Search size={16} className="text-gray-400" />
           <input
             placeholder="Search products…"
@@ -31,7 +31,8 @@ export default function ProductsPage() {
       </div>
 
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[920px]">
           <thead>
             <tr className="text-left text-xs text-gray-400 uppercase tracking-wide border-b border-gray-100">
               {["Product", "Category", "Price", "Stock", "Unit", "Status", "Actions"].map((h) => (
@@ -73,6 +74,7 @@ export default function ProductsPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

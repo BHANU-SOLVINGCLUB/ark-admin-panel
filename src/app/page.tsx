@@ -8,15 +8,15 @@ export default function Dashboard() {
   const maxRevenue = Math.max(...REVENUE_DATA.map((d) => d.revenue));
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       {/* Page header */}
       <div className="mb-8">
         <h1 className="text-2xl font-black" style={{ color: NAVY }}>Dashboard</h1>
-        <p className="text-gray-500 text-sm mt-1">Welcome back. Here's what's happening at ARK Assured.</p>
+        <p className="text-gray-500 text-sm mt-1">Welcome back. Here&apos;s what&apos;s happening at ARK Assured.</p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
         {STATS.map((stat) => (
           <div key={stat.label} className="bg-white rounded-2xl p-5 border border-gray-100">
             <p className="text-gray-400 text-xs font-semibold uppercase tracking-wide">{stat.label}</p>
@@ -29,13 +29,13 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Revenue Chart */}
-        <div className="col-span-2 bg-white rounded-2xl border border-gray-100 p-6">
+        <div className="xl:col-span-2 bg-white rounded-2xl border border-gray-100 p-4 sm:p-6">
           <h2 className="text-base font-bold mb-6" style={{ color: NAVY }}>Monthly Revenue</h2>
-          <div className="flex items-end gap-3 h-40">
+          <div className="flex items-end gap-2 sm:gap-3 h-40 overflow-x-auto pb-1">
             {REVENUE_DATA.map((d) => (
-              <div key={d.month} className="flex-1 flex flex-col items-center gap-2">
+              <div key={d.month} className="flex min-w-12 flex-1 flex-col items-center gap-2">
                 <span className="text-gray-400 text-xs">₹{(d.revenue / 100000).toFixed(1)}L</span>
                 <div
                   className="w-full rounded-t-lg"
@@ -87,14 +87,15 @@ export default function Dashboard() {
       </div>
 
       {/* Recent Orders */}
-      <div className="mt-6 bg-white rounded-2xl border border-gray-100">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+      <div className="mt-6 bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-100">
           <h2 className="text-base font-bold" style={{ color: NAVY }}>Recent Orders</h2>
           <a href="/orders" className="text-sm font-semibold hover:underline" style={{ color: GOLD }}>
             View all →
           </a>
         </div>
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[700px]">
           <thead>
             <tr className="text-left text-xs text-gray-400 uppercase tracking-wide border-b border-gray-50">
               {["Order ID", "Customer", "Product", "Amount", "Status", "Date"].map((h) => (
@@ -119,6 +120,7 @@ export default function Dashboard() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

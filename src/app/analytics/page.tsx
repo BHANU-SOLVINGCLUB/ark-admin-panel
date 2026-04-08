@@ -5,14 +5,14 @@ export default function AnalyticsPage() {
   const total = REVENUE_DATA.reduce((s, d) => s + d.revenue, 0);
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <div className="mb-8">
         <h1 className="text-2xl font-black text-[#061429]">Analytics</h1>
         <p className="text-gray-500 text-sm mt-1">Performance overview for the last 7 months</p>
       </div>
 
       {/* KPIs */}
-      <div className="grid grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
         {STATS.map((stat) => (
           <div key={stat.label} className="bg-white rounded-2xl p-5 border border-gray-100">
             <p className="text-gray-500 text-xs font-semibold uppercase tracking-wide">{stat.label}</p>
@@ -25,16 +25,16 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Full Revenue Chart */}
-      <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-6 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
           <h2 className="text-[#061429] text-base font-bold">Revenue Trend</h2>
           <p className="text-gray-500 text-sm">
             Total: <span className="text-[#061429] font-black">₹{(total / 100000).toFixed(1)}L</span>
           </p>
         </div>
-        <div className="flex items-end gap-4 h-52">
+        <div className="flex items-end gap-2 sm:gap-4 h-52 overflow-x-auto pb-1">
           {REVENUE_DATA.map((d) => (
-            <div key={d.month} className="flex-1 flex flex-col items-center gap-2">
+            <div key={d.month} className="flex min-w-12 flex-1 flex-col items-center gap-2">
               <span className="text-gray-500 text-xs">₹{(d.revenue / 100000).toFixed(1)}L</span>
               <div
                 className="w-full rounded-t-xl relative group cursor-pointer"
@@ -51,8 +51,8 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Category breakdown */}
-      <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white rounded-2xl border border-gray-100 p-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-6">
           <h2 className="text-[#061429] text-base font-bold mb-4">Top Categories</h2>
           <div className="space-y-3">
             {[
@@ -78,7 +78,7 @@ export default function AnalyticsPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-100 p-6">
+        <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-6">
           <h2 className="text-[#061429] text-base font-bold mb-4">Order Status Distribution</h2>
           <div className="space-y-3">
             {[
